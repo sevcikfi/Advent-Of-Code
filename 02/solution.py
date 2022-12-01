@@ -27,6 +27,7 @@ def solve2():
             horizontal = horizontal + x[1]
             depth = depth + aim * x[1]
     return horizontal * depth # 2073 * 895269
+    
 def main():
     print("solution 1: {}".format(solve1()))
     print("solution 2: {}".format(solve2()))

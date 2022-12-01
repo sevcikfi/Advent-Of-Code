@@ -1,4 +1,4 @@
-path = r"C:\Github\Advent-Of-Code\<Number>\input.txt"
+path = r"C:\Github\Advent-Of-Code\<Number>\input.txt" #conda things
 with open(path, 'r') as file:
     input = file.readlines()
 
