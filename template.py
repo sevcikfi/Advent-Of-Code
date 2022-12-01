@@ -1,8 +1,7 @@
 
-file = "input.txt"
-input = []
+path = r"C:\Github\Advent-Of-Code\<Number>\input.txt"
 with open(file, 'r') as file:
-    input = file.readlines()
+    input = list(map(int, file.readlines())
 
 
 def solve1():
