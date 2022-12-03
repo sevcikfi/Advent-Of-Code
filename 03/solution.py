@@ -49,9 +49,19 @@ def solve2_alt(filename):
         priorities.append(priority(set(group[0]).intersection(set(group[1]).intersection(set(group[2]))).pop()))
     return sum(priorities)
 
+def priority_alt(item : str) -> int:
+    if item.islower():return ord(item) - ord("`")
+    else: return ord(item) - ord("&")
+
+def solve1_alt2(filename):
+    return sum(priority(set(sack[:len(sack)//2]).intersection(set(sack[len(sack)//2:])).pop()) for sack in getInput(filename))
+
+def solve2_alt2(filename):
+    return sum(priority(set(group[0]).intersection(set(group[1]).intersection(set(group[2]))).pop()) for group in zip(*[iter(getInput(filename))]*3))
+
 def main():
-    print(f"solution 1: {solve1_alt(INPUT_FILE)}")
-    print(f"solution 2: {solve2_alt(INPUT_FILE)}")
+    print(f"solution 1: {solve1_alt2(INPUT_FILE)}")
+    print(f"solution 2: {solve2_alt2(INPUT_FILE)}")
     
 if __name__ == "__main__":
     main()
