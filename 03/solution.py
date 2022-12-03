@@ -31,9 +31,27 @@ def solve2(filename : str):
                     break   
     return sum(priorities)
 
+def priority(item : str) -> int:
+    if item.islower():
+        return ord(item) - 96
+    return ord(item) - 38
+
+def solve1_alt(filename):
+    priorities: list[int] = []
+    for sack in getInput(filename):
+        right, left = sack[:len(sack)//2], sack[len(sack)//2:]
+        priorities.append(priority(set(right).intersection(set(left)).pop()))
+    return sum(priorities)
+
+def solve2_alt(filename):
+    priorities: list[int] = []
+    for group in zip(*[iter(getInput(filename))]*3):
+        priorities.append(priority(set(group[0]).intersection(set(group[1]).intersection(set(group[2]))).pop()))
+    return sum(priorities)
+
 def main():
-    print(f"solution 1: {solve1(INPUT_FILE)}")
-    print(f"solution 2: {solve2(INPUT_FILE)}")
+    print(f"solution 1: {solve1_alt(INPUT_FILE)}")
+    print(f"solution 2: {solve2_alt(INPUT_FILE)}")
     
 if __name__ == "__main__":
     main()
