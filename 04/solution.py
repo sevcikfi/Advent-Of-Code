@@ -49,7 +49,7 @@ def main():
     tests()
     assert solve1(TEST_FILE) == 2, "something is wrong xd"
     print(f"solution 1: {solve1(INPUT_FILE)}")
-    assert solve2(TEST_FILE) == 4, "something is wrong xd"
+    assert solve2(TEST_FILE) == 7, "something is wrong 2 xd"
     print(f"solution 2: {solve2(INPUT_FILE)}")
     
 if __name__ == "__main__":
