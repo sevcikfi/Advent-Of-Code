@@ -6,6 +6,7 @@ def getInput(filename: str) -> list[str]:
     with open(filename, 'r') as file:
         return [line.strip() for line in file.read().strip().split("\n")]
 
+##first solution
 def solve1(filename : str):
     priorities: list[int] = [] #[int] didn't work xd
     for sack in getInput(filename):
@@ -31,6 +32,7 @@ def solve2(filename : str):
                     break   
     return sum(priorities)
 
+##first rewrite
 def priority(item : str) -> int:
     if item.islower():
         return ord(item) - 96
@@ -49,19 +51,38 @@ def solve2_alt(filename):
         priorities.append(priority(set(group[0]).intersection(set(group[1]).intersection(set(group[2]))).pop()))
     return sum(priorities)
 
+##completely final solution
 def priority_alt(item : str) -> int:
     if item.islower():return ord(item) - ord("`")
     else: return ord(item) - ord("&")
 
 def solve1_alt2(filename):
-    return sum(priority(set(sack[:len(sack)//2]).intersection(set(sack[len(sack)//2:])).pop()) for sack in getInput(filename))
+    return sum(priority_alt(set(sack[:len(sack)//2]).intersection(set(sack[len(sack)//2:])).pop()) for sack in getInput(filename))
 
 def solve2_alt2(filename):
-    return sum(priority(set(group[0]).intersection(set(group[1]).intersection(set(group[2]))).pop()) for group in zip(*[iter(getInput(filename))]*3))
+    return sum(priority_alt(set(group[0]).intersection(set(group[1]).intersection(set(group[2]))).pop()) for group in zip(*[iter(getInput(filename))]*3))
+
+##completely final solution
+def priority_alt2(item : str) -> int:  
+    return ord(item) - ord("`") if item.islower() else ord(item) - ord("&")
+
+def solve1_alt3(filename):
+    return sum(priority_alt2(set(sack[:len(sack)//2]).intersection(set(sack[len(sack)//2:])).pop()) for sack in getInput(filename))
+
+def solve2_alt3(filename):
+    return sum(priority_alt2(set(elf1).intersection(set(elf2).intersection(set(elf3))).pop()) for elf1,elf2,elf3 in zip(*[iter(getInput(filename))]*3))
+
+##oneliners babyyyyyyyy
+def solve1_oneline(filename):
+        return sum(map(lambda x: ord(x) - ord("`") if x.islower() else ord(x) - ord("&"),((set(sack[:len(sack)//2]).intersection(set(sack[len(sack)//2:])).pop()) for sack in getInput(filename))))
+
+def solve2_oneline(filename):
+        return sum(map(lambda x: ord(x) - ord("`") if x.islower() else ord(x) - ord("&"),((set(elf1).intersection(set(elf2).intersection(set(elf3))).pop()) for elf1,elf2,elf3 in zip(*[iter(getInput(filename))]*3))))
+
 
 def main():
-    print(f"solution 1: {solve1_alt2(INPUT_FILE)}")
-    print(f"solution 2: {solve2_alt2(INPUT_FILE)}")
+    print(f"solution 1: {solve1_oneline(INPUT_FILE)}")
+    print(f"solution 2: {solve2_oneline(INPUT_FILE)}")
     
 if __name__ == "__main__":
     main()
