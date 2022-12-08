@@ -7,6 +7,9 @@ def getInput(filename: str) -> list[str]:
     with open(filename, 'r') as file:
         return [line.strip() for line in file.read().strip().split("\n")]
 
+# Ideally the spaghetti bellow is split into two new functions:
+# 1) parsing one line in and deciding for behaviour
+# 2) other executing command (= extracting "cd" behaviour)
 
 def parseCommand(command : str):
     return 0
