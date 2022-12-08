@@ -11,8 +11,42 @@ def getInput(filename: str) -> list[str]:
 # 1) parsing one line in and deciding for behaviour
 # 2) other executing command (= extracting "cd" behaviour)
 
-def parseCommand(command : str):
-    return 0
+# edit: did both in parseLine, parseCD, used in solve1_alt
+
+# possible ways to implement Filesystem are 
+# 1) Basic tree 2) @dataclass/fancier object
+# 3) Pathlib simulation of real fs 4) dictionary of abs paths
+
+def parseLine(command : str, fs : dict[str,int], cwd : str):
+    cmd = command.split()
+    if cmd[0].isalpha():
+        if cwd == "/":
+            fs[cwd+cmd[1]] = 0
+        else:
+            fs[cwd+"/"+cmd[1]] = 0
+    if cmd[0].isdigit():
+            fs[cwd] += int(cmd[0])
+    if not cmd[0].isalnum(): #parsing command
+        if cmd[1] == "cd":
+            cwd = parseCD(cmd[2], fs, cwd)
+    return cwd
+
+def parseCD(option : str, fs : dict[str,int], cwd : str):
+    if option == "..": #backtracking
+        lower = cwd
+        if lower == '/':
+            return cwd # root dir breaks stuff
+        cwd = cwd.rpartition("/")[0]
+        if not cwd: # root dir breaks stuff
+            cwd = "/"
+        fs[cwd] += fs[lower]
+    elif cwd == "/": # root dir breaks stuff
+        cwd += option
+    elif option == "/":
+        cwd = "/" # root dir breaks stuff
+    else:
+        cwd += "/" + option
+    return cwd
 
 def solve1(filename : str, fs=False):
     filesystem = {"/": 0}
@@ -67,11 +101,29 @@ def solve2(filename : str):
     dirs = [size for size in filesystem.values() if size > delete]
     return min(dirs)
 
+def solve1_alt(filename :str, fs=False):
+    filesystem = {"/": 0}
+    cwd = ""
+    for command in getInput(filename):
+        cwd = parseLine(command, filesystem, cwd)
+    #cleaning back to root
+    for i in range(len(cwd.split("/"))):
+        if cwd == "/":
+            break
+        cwd = parseCD("..", filesystem, cwd)
+    if fs: #returning FS to 2nd part
+        return filesystem
+    return sum([size for size in filesystem.values() if size <= 100000])
+
+def solve2_alt(filename : str):
+    filesystem = solve1(filename, True)
+    return min([size for size in filesystem.values() if size > 30000000 - (70000000 - filesystem["/"])])
+
 def main():
-    assert solve1(TEST_FILE) == (94853 + 584), "something is wrong xd"
-    print(f"solution 1: {solve1(INPUT_FILE)}")
-    assert solve2(TEST_FILE) == 24933642, "something is wrong 2 xd"
-    print(f"solution 2: {solve2(INPUT_FILE)}")
+    assert solve1_alt(TEST_FILE) == (94853 + 584), "something is wrong xd"
+    print(f"solution 1: {solve1_alt(INPUT_FILE)}")
+    assert solve2_alt(TEST_FILE) == 24933642, "something is wrong 2 xd"
+    print(f"solution 2: {solve2_alt(INPUT_FILE)}")
     
 if __name__ == "__main__":
     main()
