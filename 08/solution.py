@@ -7,6 +7,10 @@ def getInput(filename: str) -> list[list[int]]:
     with open(filename, 'r') as file:
         return [[int(tree) for tree in line] for line in file.read().strip().split("\n")]
 
+#possible alt way to do it
+#from itertools import takewhile
+#rr1 = len(list(takewhile(lambda t: t < forest[y][x], [tree for tree in forest[y][x::-1]])))+1
+
 def isVisible(forest: list[list[int]], y : int, x : int):
     rr, lr, hc, lc = True, True, True, True
     for rrow in [tree for tree in forest[y][x-1::-1]]:
@@ -67,23 +71,6 @@ def main():
     assert solve2(TEST_FILE) == 8, "something is wrong 2 xd"
     print(f"solution 2: {solve2(INPUT_FILE)}")
     exit()
-    #testing snipets
-    rrow = [tree for tree in forest[y][x-1::-1]]
-    lrow = [tree for tree in forest[y][x+1:]]
-    hiColumn = [tree for line in forest[y-1::-1] for tree in line[x]]
-    loColumn = [tree for line in forest[y+1:] for tree in line[x]]
-    print(f"{irow},{icolumn}")
-    if forest[y][x] == "4":
-        print(f"{forest[y][x]} - {y},{x}")
-        print(rrow)
-        print(rr)
-        print(lrow)
-        print(lr)
-        print(hiColumn)
-        print(hc)
-        print(loColumn)
-        print(lc)
-        print(final)
 
 if __name__ == "__main__":
     main()
