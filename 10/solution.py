@@ -6,17 +6,13 @@ TEST_FILE = "10\\test.txt" # test file
 def getInput(filename: str) -> list[list[str]]:
     with open(filename, 'r') as file:
         return [line.strip().split() for line in file.read().strip().split("\n")]
+#print(f'Dur:{cycle} - {regs["x"]}, TTL:{regs["TTL"]}')
 
 def fetchInstr(instr, regs):
-    if "add" in instr[0]: addx(regs, instr[1])
-    if "noo" in instr[0]: noop(regs)
-
-def addx(regs, v):
-    regs["acc"] += int(v)
-    regs["TTL"] = 2
-
-def noop(regs):
-    regs["TTL"] = 1
+    if "add" in instr[0]: 
+        regs["acc"] += int(instr[1])
+        regs["TTL"] = 2
+    if "noo" in instr[0]: regs["TTL"] = 1
 
 def solve1(filename : str):
     program = iter(getInput(filename))
@@ -28,14 +24,11 @@ def solve1(filename : str):
         regs["TTL"] += -1
         if regs["TTL"] < 1:
             fetchInstr(next(program), regs)
-        #print(f'Dur:{cycle} - {regs["x"]}, TTL:{regs["TTL"]}')
         if cycle in [20, 60, 100, 140, 180, 220]:
             strengths.append(cycle * regs["x"])
         if regs["TTL"] == 1:
             regs["x"] += regs["acc"]
             regs["acc"] = 0
-        #print(f'End:{cycle} - {regs["x"]}, TTL:{regs["TTL"]}') 
-    print(strengths)
     return sum(strengths)
 
 def solve2(filename : str):
@@ -64,8 +57,6 @@ def solve2(filename : str):
         
     for r in display:
         print(''.join(r))
-    print()
-    print()
     return 2
 
 def main():
