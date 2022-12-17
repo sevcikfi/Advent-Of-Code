@@ -108,8 +108,7 @@ def solve1_alt(filename :str, fs=False):
         cwd = parseLine(command, filesystem, cwd)
     #cleaning back to root
     for i in range(len(cwd.split("/"))):
-        if cwd == "/":
-            break
+        if cwd == "/": break
         cwd = parseCD("..", filesystem, cwd)
     if fs: #returning FS to 2nd part
         return filesystem
