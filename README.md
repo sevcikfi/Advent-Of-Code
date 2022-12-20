@@ -6,6 +6,18 @@
 
 ## 2022
 
+Goal for 2022:
+
+- [x] do more than the year before (4 days)
+- [x] manage 3rd
+- [ ] solve half of puzzles
+- [ ] tackle 2/3 (16-18)
+- [ ] ideally, finish the whole things
+
+Reflection after finishing:
+
+**`TODO write here`**
+
 ### Day 01-03
 
 very basic warm-up reading input and doing basic things
