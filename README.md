@@ -1,5 +1,7 @@
 # Advent-Of-Code
 
+Each section concerns only one year, the order of years done is: 2021 (1-4), 2022 (1-11)
+
 ## 2021
 
 ---
