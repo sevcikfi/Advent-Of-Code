@@ -55,3 +55,7 @@ not done yet
 ### Day 10
 
 very super basic CPU instruction execution simulator with art printout in 2nd part - **side effect hell** (global state babysitting)
+
+### Days 11-24
+
+FIXME: not done just yet
