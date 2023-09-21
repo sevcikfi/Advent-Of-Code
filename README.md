@@ -4,6 +4,8 @@ Each section concerns only one year, the order of years done is: 2021 (1-4), 202
 
 ## 2021
 
+first 4 kinda
+
 ---
 
 ## 2022
