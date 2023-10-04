@@ -13,6 +13,9 @@ def solve1(filename : str):
 def solve2(filename : str):
     return 2
 
+def Testing(bool=True):
+    if not bool: return
+
 def main():
     assert solve1(TEST_FILE) == 1, "something is wrong xd"
     print(f"solution 1: {solve1(INPUT_FILE)}")
