@@ -8,3 +8,9 @@ class Tree:
     def addChild(self, node):
         #assert isinstance(node, Tree)
         self.children.append(node)
+
+
+def searchDict(what: str, where: dict):
+    for key in where:
+        if key in what:
+            return where[key]

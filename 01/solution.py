@@ -13,7 +13,6 @@ def solve1(filename : str):
     for line in getInput(filename):
         digits = "".join([dig for dig in line if dig.isdigit()])
         numbers.append(int("".join([digits[0], digits[-1]])))
-
     return sum(numbers)
 
 def solve2(filename : str):

@@ -25,10 +25,14 @@ Reflection after finishing:
 
 **`TODO write here`** around New Year
 
-### Day 1-XX
+### Day 01
 
 >What an Advent of Code huh \*take a shot of rum\*
 >Captain, it's only been day one...
+
+### Day 02
+
+Regex pain continues...
 
 ---
 
