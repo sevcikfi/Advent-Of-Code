@@ -27,6 +27,9 @@ Reflection after finishing:
 
 ### Day 1-XX
 
+>What an advent of Code huh *take a shot of rum*
+>Captain, it's only been day one...
+
 ---
 
 ## 2022
