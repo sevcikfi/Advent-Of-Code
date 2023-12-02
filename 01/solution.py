@@ -18,7 +18,7 @@ def solve1(filename : str):
 
 def solve2(filename : str):
     numbers: list = []
-    """
+    
     #parsing sux ass
     conversion = {"one": 1, "two": 2, "three": 3,
                    "four": 4, "five": 5, "six": 6,
@@ -32,15 +32,17 @@ def solve2(filename : str):
                 if k in slice:
                     digits.append(str(conversion[k]))
             print(digits)
-    """            
+    
     #fuck it, we ball
+    numbers: list = []
+    digits2 = []
     for line in getInput(filename):
         line = line.replace("one", "one1one").replace("two", "two2two").replace("three", "three3three")
         line = line.replace("four", "four4four").replace("five", "five5five").replace("six", "six6six")
         line = line.replace("seven", "seven7seven").replace("eight", "eight8eight").replace("nine", "nine9nine")
 
-        digits = "".join([dig for dig in line if dig.isdigit()])
-        numbers.append(int("".join([digits[0], digits[-1]])))
+        digits2 = "".join([dig for dig in line if dig.isdigit()])
+        numbers.append(int("".join([digits2[0], digits2[-1]])))
     return sum(numbers)
 
 def Testing(bool=True):
