@@ -1,10 +1,31 @@
 # Advent-Of-Code
 
-Each section concerns only one year, the order of years done is: 2021 (1-4), 2022 (1-11)
+Each section concerns only one year in descending order newest to oldest.
+However i'll eventually come around and finish older years.
 
-## 2021
+| Year | how many done |  When |
+|:----:|:-------------:|------:|
+| 2021 | 1-4           | early dec |
+| 2022 | 1-9,11        | early to mid dec |
+| 2023 | 0             | -- |
 
-first 4 kinda
+## 2023
+
+Goals for 2023:
+
+- [ ] do more than the year before (11 days)
+- [ ] manage 3rd
+- [ ] solve half of puzzles
+- [ ] tackle 2/3 (16-18)
+- [ ] ideally, finish the whole things
+- [ ] bonus: use more than one language/something else than Python
+- [ ] bonus: use unit tests
+
+Reflection after finishing:
+
+**`TODO write here`** around New Year
+
+### Day 1-XX
 
 ---
 
@@ -61,3 +82,9 @@ very super basic CPU instruction execution simulator with art printout in 2nd pa
 ### Days 11-24
 
 FIXME: not done just yet
+
+---
+
+## 2021
+
+first 4 kinda
