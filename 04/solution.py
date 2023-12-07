@@ -12,25 +12,23 @@ def solve1(filename : str):
     score: list[int] = []
     for line in getInput(filename):
         points = 0
-        split = re.split(":|\|", line)
+        split = re.split(r":|\|", line)
         for win in tuple(int(split[1][i:i+3].strip()) for i in range(0, len(split[1].strip()), 3)):
             if win in tuple(int(split[2][i:i+3].strip()) for i in range(0, len(split[2].strip()), 3)):
                 points = points + 1
-        if points > 0:
-            score.append(2**(points-1))
+        if points > 0: score.append(2**(points-1))
     return sum(score)
 
 def solve2(filename : str):
-    score = [0]*200
+    score = [1]*200 #score[i] = score[i] + 1
     for i, card in enumerate(getInput(filename)):
-        score[i] = score[i] + 1
-        split = re.split(":|\|", card)
+        split = re.split(r":|\|", card)
         hits = 0
         for win in tuple(int(split[1][i:i+3].strip()) for i in range(0, len(split[1].strip()), 3)):
             if win in tuple(int(split[2][i:i+3].strip()) for i in range(0, len(split[2].strip()), 3)):
                 hits = hits + 1
-                score[i + hits] = score[i + hits] + score[i]
-    return sum(score)
+                score[i+hits] = score[i+hits] + score[i]
+    return sum(score[0:i+1])
 
 def Testing(bool=True):
     if not bool: return

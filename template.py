@@ -1,10 +1,10 @@
-INPUT_FILE = "number\\input.txt" # change the number because conda runs in root of repo
+DAY = 0  # change the number because conda runs in root of repo
+INPUT_FILE = f"{str(DAY)}\\input.txt" 
 #if above not work, use r"C:\Github\Advent-Of-Code\<Number>\input.txt" #conda things
-TEST_FILE = "number\\test.txt" # test file
-#input = [list(map(int, (line.strip()))) for line in raw] #Read comp for number
+TEST_FILE = f"{str(DAY)}\\test.txt" # test file
 
 def getInput(filename: str) -> list[str]:
-    with open(filename, 'r') as file:
+    with open(filename, 'r') as file: #pre split/process input here
         return [line.strip() for line in file.read().strip().split("\n")]
 
 def solve1(filename : str):
