@@ -1,7 +1,7 @@
 DAY = 0  # change the number because conda runs in root of repo
-INPUT_FILE = f"{str(DAY)}\\input.txt" 
+INPUT_FILE = f"{DAY:02d}\\input.txt" 
 #if above not work, use r"C:\Github\Advent-Of-Code\<Number>\input.txt" #conda things
-TEST_FILE = f"{str(DAY)}\\test.txt" # test file
+TEST_FILE = f"{DAY:02d}\\test.txt" # test file
 
 def getInput(filename: str) -> list[str]:
     with open(filename, 'r') as file: #pre split/process input here
