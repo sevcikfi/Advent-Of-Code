@@ -1,7 +1,7 @@
 DAY = 5  # change the number because conda runs in root of repo
-INPUT_FILE = f"{DAY:02d}/input.txt" 
+INPUT_FILE = f"{DAY:02d}\\input.txt" 
 #if above not work, use r"C:\Github\Advent-Of-Code\<Number>\input.txt" #conda things
-TEST_FILE = f"{DAY:02d}/test.txt" # test file
+TEST_FILE = f"{DAY:02d}\\test.txt" # test file
 
 def getInput(filename: str):
     with open(filename, 'r') as file: #pre split/process input here
@@ -24,7 +24,6 @@ def solve1(filename : str):
                 else:
                     to_search.append(seed)
             seeds = to_search.copy()
-        
         seeds = to_search + new_seeds
     return min(seeds)
 
@@ -32,15 +31,15 @@ import psutil
 from datetime import datetime
 def solve2(filename : str):
     raw_seeds, mappings = getInput(filename)
-    mins = []
+    mins:list[int] = []
     for i in range(0,len(raw_seeds), 2):
+        ii = 0
         seeds:list[int] = []
         seeds = list(range(raw_seeds[i], raw_seeds[i] + raw_seeds[i+1]))
         print(f"{i//2}: {datetime.now().strftime('%H:%M:%S')}: RAM Used: { psutil.virtual_memory()[3]/1000000000:.4f}GB, {psutil.virtual_memory()[2]}%")
         for conversion in mappings:
             new_seeds:list[int] = []
             to_search:list[int] = []
-
             for con in conversion:
                 to_search.clear()
                 dest, sos, lang = [int(c) for c in con.split(" ")]
@@ -51,11 +50,10 @@ def solve2(filename : str):
                     else:
                         to_search.append(seed)
                 seeds = to_search.copy()
+                ii += 1
+                print(f"{ii}: {datetime.now().strftime('%H:%M:%S')}")
             seeds = to_search + new_seeds
-        print(min(seeds))
         mins.append(min(seeds))
-
-    print(mins)
     return min(mins)
 
 def Testing(bool=True):

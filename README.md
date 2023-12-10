@@ -34,6 +34,21 @@ Reflection after finishing:
 
 Regex pain continues...
 
+### Day 03
+
+Locality search, haven't finished yet
+
+### Day 04
+
+Fairly nice a bit advanced accumulate on input (done on 5th in the morning)
+
+### Day 05
+
+Number/interval mappings - test input easy, real was... pain and the naive solution
+for part 2 took 2.5h to compute using single core ARM Armstrong (or w/e they have on Oracle Cloud)
+with 3-4GB of RAM using **Pypy**, standard python distribution took too long and ate 4-5x more memory.
+(done at night on 10th)
+
 ---
 
 ## 2022
