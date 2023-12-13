@@ -49,6 +49,10 @@ for part 2 took 2.5h to compute using single core ARM Armstrong (or w/e they hav
 with 3-4GB of RAM using **Pypy**, standard python distribution took too long and ate 4-5x more memory.
 (done at night on 10th)
 
+### Day 06
+
+Just quadratic equation solving
+
 ---
 
 ## 2022
