@@ -51,7 +51,7 @@ with 3-4GB of RAM using **Pypy**, standard python distribution took too long and
 
 ### Day 06
 
-Just quadratic equation solving
+Just solving quadratic equation
 
 ---
 
