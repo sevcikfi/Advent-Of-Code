@@ -6,14 +6,15 @@ However i'll eventually come around and finish older years.
 | Year | how many done |  When |
 |:----:|:-------------:|------:|
 | 2021 | 1-4           | early dec |
-| 2022 | 1-9,11        | early to mid dec |
-| 2023 | 0             | -- |
+| 2022 | 1-9 ,11       | early to mid dec |
+| 2023 | 1-2, 4-6      | early dec |
 
 ## 2023
 
 Goals for 2023:
 
-- [ ] do more than the year before (11 days)
+- [ ] do more than in 2022 (11 days)
+- [x] do more than in 2021 (4 days)
 - [ ] manage 3rd
 - [ ] solve half of puzzles
 - [ ] tackle 2/3 (16-18)
