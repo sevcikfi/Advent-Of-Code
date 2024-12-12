@@ -22,6 +22,23 @@ Goals for 2023:
 - [ ] bonus: use more than one language/something else than Python
 - [ ] bonus: use unit tests
 
+### Day 1
+
+## 2024
+
+Goals for 2024:
+
+- [ ] even start
+- [ ] do more than in 2021 (4 days)
+- [ ] do more than in 2023 (5 days)
+- [ ] do more than in 2022 (11 days)
+- [ ] manage 3rd
+- [ ] solve half of puzzles
+- [ ] tackle 2/3 (16-18)
+- [ ] ideally, finish the whole things
+- [ ] bonus: use more than one language/something else than Python
+- [ ] bonus: use unit tests
+
 Reflection after finishing:
 
 **`TODO write here`** around New Year
